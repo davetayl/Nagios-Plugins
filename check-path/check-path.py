@@ -52,6 +52,7 @@ def trace(host,ttype):
                         if last_distance + 1 != hop.distance:
                                 print('*')
                         print(f'hop={hop.distance},addr={hop.address},rtt={hop.avg_rtt};')
+
                         last_distance = hop.distance
                 return
         else:
