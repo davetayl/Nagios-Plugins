@@ -51,7 +51,7 @@ def trace(host,ttype):
                 for hop in traceroute(host,fast_mode=True):
                         if last_distance + 1 != hop.distance:
                                 print('*')
-                        print(f'hop={hop.distance},addr={hop.address},rtt={hop.avg_rtt}ms;')
+                        print(f'hop={hop.distance},addr={hop.address},rtt={hop.avg_rtt};')
                         last_distance = hop.distance
                 return
         else:
@@ -61,15 +61,15 @@ def trace(host,ttype):
 # Run the ping and print out the results in Nagios format, exit if ping fails
 if check.is_alive:
     if check.avg_rtt <= rttok:
-        print(f'HOST OK - RTT = {check.max_rtt}ms;', end = '')
+        print(f'HOST OK - RTT = {check.max_rtt};', end = '')
         trace(host,ttype)
         sys.exit(0)
     elif (check.avg_rtt > rttok) and (check.avg_rtt < rttmax):
-        print(f'HOST WARN - RTT = {check.max_rtt}ms;', end = '')
+        print(f'HOST WARN - RTT = {check.max_rtt};', end = '')
         trace(host,ttype)
         sys.exit(1)
     elif check.avg_rtt > rttmax:
-        print(f'HOST CRITICAL - RTT = {check.avg_rtt}ms;', end = '')
+        print(f'HOST CRITICAL - RTT = {check.avg_rtt};', end = '')
         trace(host,ttype)
         sys.exit(2)
     else:
