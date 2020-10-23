@@ -37,13 +37,7 @@ def trace(host,ttype):
                 tracedict = {}
                 tracertt  = 0.0
                 print(' | ', end='')
-                for hop in traceroute(host,fast_mode=True):
-                        tracedict.update({hop.distance:{'hopa':hop.address,'hopr':hop.avg_rtt }})
-                        if hop.avg_rtt  > tracertt :
-                                tracedist = hop.distance
-                                tracertt  = hop.avg_rtt 
-                                traceaddr = hop.address
-                print(f'hop={tracedist},addr = {traceaddr},rtt  = {tracertt } ms')
+                print(f"rtt={check.max_rtt}")
                 return
         elif ttype == 3:
                 last_distance = 0    
