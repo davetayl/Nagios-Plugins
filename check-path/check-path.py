@@ -62,17 +62,17 @@ def trace(host,ttype):
 # Run the ping and print out the results in Nagios format, exit if ping fails
 if check.is_alive:
     if check.avg_rtt <= rttok:
-        print(f'HOST OK - RTT = {check.max_rtt};', end = '')
+        print(f"HOST OK - 'RTT'={check.max_rtt};", end = '')
         trace(host,ttype)
         sys.exit(0)
     elif (check.avg_rtt > rttok) and (check.avg_rtt < rttmax):
-        print(f'HOST WARN - RTT = {check.max_rtt};', end = '')
+        print(f"HOST WARN - 'RTT'={check.max_rtt};", end = '')
         trace(host,ttype)
         sys.exit(1)
     elif check.avg_rtt > rttmax:
-        print(f'HOST CRITICAL - RTT = {check.avg_rtt};', end = '')
+        print(f"HOST CRITICAL - 'RTT'={check.avg_rtt};", end = '')
         trace(host,ttype)
         sys.exit(2)
     else:
-        print(f'HOST CRITICAL - Down;', end = '')
+        print(f"HOST CRITICAL - Down;", end = '')
         sys.exit(2)
