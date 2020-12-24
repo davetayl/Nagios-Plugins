@@ -36,10 +36,10 @@ if source[0] contains *:
             sys.exit(2)
         else:
             print(f"HOST CRITICAL - Down")
-            sys.exit(0)
+            sys.exit(2)
     else:
         print(f"HOST CRITICAL - Down")
-        sys.exit(0)
+        sys.exit(2)
 else:
     print(f"HOST CRITICAL - Down")
-    sys.exit(0)    
+    sys.exit(2)    
