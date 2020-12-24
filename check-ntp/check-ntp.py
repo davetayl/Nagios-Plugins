@@ -21,7 +21,7 @@ rttmax = vars(args)['rttmax']
 
 # check for active server and get metrics
 source = re.split(r'\s+',str(os.popen('chronyc -n sources | grep \*').read()))
-if source[0] contains *:
+if source[0] contains '*':
     source = float(source[9].replace('ms',''))
     
     if source != 0:
